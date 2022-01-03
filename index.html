@@ -1,0 +1,60 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet.css">
+    <script src="/assets/js/simplejs.js"></script>
+
+    <title>Tran</title>
+  </head>
+  
+  <body class="body">
+    {% include navigation.html %}
+    <div class="divider"></div>
+    <div class="introduction block">
+        <div class="" style="width:40%;float:left">
+            <img src="assets/images/profile.png" style="width:100%;height:100%;">
+        </div>
+
+        <div class="" style="width:60%;float:left">
+            <p class="name block" align="center">Tran Phong </p>
+            <p class="block">
+                I am a research enginneer at 
+                <a href="https://unicen.smu.edu.sg/" target= "_blank" >Fujitsu-SMU Urban Computing and Engineering (UNiCEN) Corp. Lab</a>, 
+                where I work with Professor <a href="https://faculty.smu.edu.sg/profile/lau-hoong-chuin-631" target= "_blank" >Lau Hoong Chuin</a> 
+                to engineer a routing engine for logistics companies.
+                I am also a part-time Master student in Computer Science at
+                 <a href="https://www.comp.nus.edu.sg/" target="_blank">NUS, School of Computing</a>. Before joining NUS, I received Bachelor of Engineering in Electrical 
+                 Engineering at HCMC University of Technology in Vietnam.
+            </p>
+            <p class="block">
+                <a href="pbtran@u.nus.edu" onclick="copyURI(event)">Email</a>
+                <span>&sol;</span>
+                <a href="https://scholar.google.com/citations?user=-MjdFtAAAAAJ&hl=en" target="_blank">Google Scholar</a> 
+                <span>&sol;</span> 
+                <a href="https://github.com/tpvt99" target="_blank">Github</a>
+            </p>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="research block">
+        <p class="heading block"> Research</p>
+        <p class="block">I am interested in computer vision and robotic manipulation.</p>
+        <p class="block">During undergraduates, I had one year as a visiting student at NTU, Singapore where I work with
+        <a href="https://scholar.google.com/citations?user=HsMFSVsAAAAJ&hl=en" target="_blank">Dr. Thinh</a> on a hardware acceleration 
+        project for ORB object detection. As an engineer in Fujitsu-SMU Corp. Lab, I  develop a deep learning model for incidents predictions
+        and a routing engine for vehicle schedulings.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+    <div class="publication block" id="publication">
+        <p class="heading block">Publications</p>
+        {% include publications.html %}
+    </div>
+  </body>
+</html>

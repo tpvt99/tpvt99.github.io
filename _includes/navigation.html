@@ -1,0 +1,10 @@
+
+<nav class="navigation block">
+    <ul>
+    {% for item in site.data.navigation %}
+        <li>
+            <a href="{{item.link}}" style="font-size:16px"> {{item.name}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
