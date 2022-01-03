@@ -1,0 +1,100 @@
+---
+layout: publications
+title: "Stream-based ORB Feature Extractor with Dynamic Power Optimization"
+icon: "/assets/images/publications/tran18/icon.png"
+---
+
+<h1 id="pubs-heading">Stream-based ORB Feature Extractor with Dynamic Power Optimization</h1>
+
+<figure id="pubs-thumbnail">
+    <img src="/assets/images/publications/tran18/architecture.png">
+    <figcaption>Figure 1. Feature Extraction Architecture using ORB algorithm.</figcaption>
+</figure>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Abstract</div>
+    <div class="pubs-text pubs-block">
+        The Oriented Fast and Rotated BRIEF (ORB)
+        feature extractor, which consists of key-point detection and
+        descriptor computation, is a key module in many computer
+        vision systems. Existing hardware implementations of ORB
+        feature extractor only focus on increasing performance with
+        power optimization as a post consideration. In this paper, we
+        present a stream-based ORB feature extractor that incorporates
+        mechanisms to lower the dynamic power consumption. These
+        mechanisms exploit the fact that the number of detected keypoints is typically small. The proposed solution significantly
+        lowers the switching activity of the key-point detection and
+        descriptor computation stages by early pruning of non-likely
+        key-points and gating the descriptor computation stages. Further
+        power reduction and resource minimization are achieved by
+        employing a threshold-guided bit-width optimization strategy to
+        truncate the redundant bits in the key-point detection stage.
+        Finally, we propose an approximation method to achieve rotation
+        invariance of the descriptors. FPGA implementation targeting
+        the Altera Aria V device shows that the proposed strategies lead
+        to over 25% reduction in dynamic power and lower resource
+        utilization, with only marginal loss in accuracy
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Introduction</div>
+    <div class="pubs-text pubs-block">
+        We want to implement a power-optimized and stream-based ORB feature extractor 
+        to achieve real-time performance in computer vision systems. Yet, there are two challenges:
+        <ol style=" list-style-position: inside; list-style-type: decimal;">
+            <li>
+                Firstly, the key-point detection algorithm is computationally intensive due to the numerous addition and multiplication operators
+                needed for calculating the corner response. 
+            </li>
+            <li>
+                Secondly, a large number of row buffers are
+                typically used in stream processing to cache the input pixel stream, which contributes to significant dynamic power 
+                consumption and hardware resources.
+            </li>
+        </ol>
+    </div>
+
+    <div class="pubs-text pubs-block">
+        We thus introduce four main contributions to solve the aformentioned challenges:
+        <ul style="list-style-type: disc; list-style-position: inside;">
+            <li>
+                We propose a new stream-based architecture for ORB feature extraction that utilizes an approximation angle 
+                discretization method to acehive rotation invariance of the descriptors that avoids costly operations.
+            </li>
+            <li>
+                We present strategies to lower the dynamic power by effectively inhibiting unncessary signal activities 
+                in the key-point detection and descriptor computation pipeline.
+            </li>
+            <li>
+                We introduce a bit-width optimization strategy in the key-point detection stage to lower power consumption.
+            </li>
+            <li>
+                We show that the proposed strategies maintain a marginal loss of accuracy while achieving notable savings in
+                dynamic power and resource utilization on the Altera Aria V FPGA.
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-block pubs-section">Accuracy Evaluation</div>
+    <div class="pubs-block pubs-text">
+        First, we measure the accuracy of the key-points detector in which we use repeatability criterion, which measures the robustness against
+        variety of changes in image conditions, i.e. rotation, scaling, and illumination. Here we report the difference in repeatability of 
+        <span style="font-style: italic;">Prop2-KD</span> and <span style="font-style: italic;">Prop1-KD</span> which 
+
+        $$
+        \begin{equation}
+            \Delta r = \frac{|\text{repeat}_{\text{Prop2-KD}} - \text{repeat}_{\text{Prop1-KD}}|}{\text{repeat}_{\text{Prop1-KD}}} \times 100 \%
+        \end{equation}
+        $$
+        
+
+
+    </div>
+</div>

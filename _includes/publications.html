@@ -6,9 +6,9 @@
         </div>
         <div class="research-summary block">
             {% if publication.webpage %}
-                <a href="{{publication.webpage}}" class="pub-name">{{ publication.name}} </a>
+                <a href="{{publication.webpage}}" class="pub-name" target="_blank">{{ publication.name}} </a>
             {% else %}
-                <a href="javascript:void(0)" class="pub-name">{{ publication.name}} </a>
+                <a href="javascript:void(0)" class="pub-name" target="_blank">{{ publication.name}} </a>
             {% endif %}
 
             <p class="pub-author">
@@ -38,7 +38,10 @@
             <p class="pub-venue">{{publication.venue}}</p>
             <p class="pub-info">
                 {% if publication.webpage %}
-                    <a href="{{publication.webpage}}">Webpage</a>
+                    <a href="{{publication.webpage}}" target="_blank">Webpage</a>
+                {% endif %}
+                {% if publication.paper %}
+                    <a href="{{publication.paper}}" target="_blank">Paper</a>
                 {% endif %}
             </p>
         </div>

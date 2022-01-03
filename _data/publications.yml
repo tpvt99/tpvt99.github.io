@@ -12,8 +12,9 @@
       website: "https://faculty.smu.edu.sg/profile/lau-hoong-chuin-631"
   venue: "Proceedings of the International Conference on Automated Planning and Scheduling (ICAPS), China, 2021"
   citekey: "jon21"
-  thumbnail: "/assets/images/publications_thumbnails/jon21.png"
+  thumbnail: "/assets/images/publications/jon21/thumbnail.png"
   webpage: "/publications/grandvision.html"
+  paper: "/assets/pdf/jon21.pdf"
 
 - name: "Stream-based ORB Feature Extractor with Dynamic Power Optimization"
   author: 
@@ -29,8 +30,9 @@
       website: "https://bhavanj.github.io/"
   venue: "IEEE International Conference on Field-Programmable Technology (ICFPT), Japan, 2018"
   citekey: "tran18"
-  thumbnail: "/assets/images/publications_thumbnails/tran18.png"
-
+  thumbnail: "/assets/images/publications/tran18/thumbnail.png"
+  paper: "/assets/pdf/tran18.pdf"
+  webpage: "/publications/stream-orb.html"
 
 - name: "High-Throughput and Area-Optimized Architecture for rBRIEF Feature Extraction"
   author: 
