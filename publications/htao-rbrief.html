@@ -1,0 +1,261 @@
+---
+layout: publications
+title: "High-Throughput and Area-Optimized Architecture for rBRIEF Feature Extraction"
+icon: "/assets/images/publications/thinh18/icon.png"
+---
+
+<h1 id="pubs-heading">High-Throughput and Area-Optimized Architecture for rBRIEF Feature Extraction</h1>
+
+<h3 id="pubs-author">Thinh Hung Pham, Phong Tran, Siew-Kei Lam</h3>
+
+<figure id="pubs-thumbnail">
+    <img src="/assets/images/publications/thinh18/rbrief.png">
+    <figcaption style="font-size:16px" >Figure 1. Block diagram of rBRIEF feature extractor.</figcaption>
+</figure>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Abstract</div>
+    <div class="pubs-text pubs-block">
+        Feature matching is a fundamental step in many
+real-time computer vision applications such as Simultaneous
+Localization And Mapping (SLAM), motion analysis and stereo
+correspondence. The performance of these applications depends
+on the distinctiveness of the visual feature descriptors used,
+and the speed at which they can be extracted from video
+frames. When combined with standard key-point detectors, the
+rotation-aware Binary Robust Independent Elementary Features
+(rBRIEF) descriptor has been shown to outperform its counterparts. In this paper, 
+we present a deep-pipelined stream processing architecture that is capable of extracting rBRIEF features
+from high-throughput video frames. To achieve high processing
+rate and low complexity hardware, the proposed architecture
+incorporates an enhanced moving summation strategy to calculate the key-points’ patch moments and employs approximate
+computations to achieve patch rotation. Multiplier-less circuitry
+is introduced throughout the architecture to avoid the use of
+costly multipliers. Implementation on the Altera Aria V device
+demonstrates that the proposed architecture leads to 53.3%
+reduction in hardware resources (adaptive logic modules) while
+achieving 50% higher accuracy (in terms of average Hamming
+distance) when compared to the state-of-the-art architecture.
+In addition, the proposed architecture is able to process highresolution (1920×1080) images at 60 fps while consuming only
+456.15 mW power.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Contributions</div>
+    <div class="pubs-text pubs-block">
+        Our work presents a low complexity stream processing architecture that is capable of extracting rBRIEF features
+        from high-throughput video frames. The main contributions of this paper:
+        <ol style="list-style-type: disc; list-style-position: inside;">
+            <li>
+                A novel deep-pipelined architecture that can extract
+                rBRIEF feature descriptors on-the-fly from high-rate input pixel streams without utilizing any image frame
+                buffers.
+            </li>
+            <li>
+                An enhanced moving summation strategy is proposed to
+                calculate the key-point’s patch moments, which significantly reduces the hardware complexity. The proposed
+                architecture does not use any conventional multipliers to
+                perform rBRIEF feature computation. Instead multiplierless circuitries leveraging on single constant multiplication are introduced throughout the architecture to avoid
+                the use of costly multipliers.
+            </li>
+            <li>
+                Approximate computation based on novel angle discretization methods is applied to compute the orientation
+                of the patch. In addition, a folded architecture is proposed
+                to rotate the BRIEF point-pairs by exploiting the sparsity
+                of key-points.
+            </li>
+            <li>
+                A comprehensive evaluation on the effect of approximation and bit-width truncation is undertaken to obtain the
+                optimal trade-off between accuracy and complexity of the
+                proposed architecture
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Proposed Architecture</div>
+    <p class="pubs-block pubs-text">
+        Figure 1. shows the rBRIEF feature extractor consisting of four units, i.e. <span style="font-style:italic">Centroid</span>,
+        <span style="font-style:italic">Angle</span>, <span style="font-style:italic">Rotator</span>,
+        and <span style="font-style:italic">Generator</span>. 
+        
+
+
+           
+    </p>
+
+    <p class="pubs-block pubs-text">The Centroid unit is used to compute the moments (i.e. m01,
+        m10) of a key-point’s patch as in Eq. (1).
+
+        $$
+        \begin{align}
+        \tag{1}
+        \begin{split}
+        
+            m_{01} = \sum_{x,y} y \times p_{x,y}, \\ m_{10} = \sum_{x,y} x \times p_{x,y} 
+            \end{split}
+            \end{align}
+        
+        $$
+    
+    </p>
+
+    <p class="pubs-block pubs-text">
+        The Angle unit
+        calculates the orientation angle of the patch based on the
+        values of the moments.
+    </p>
+
+    <p class="pubs-block pubs-text">
+        The Rotator unit uses the orientation
+        angle from the Angle unit to rotate the coordinates of the
+        pre-determined BRIEF point-pairs as in Eq. (2). The rotated
+        coordinates of the BRIEF point-pairs are used to access the
+        corresponding pixel intensities in the window buffer. 
+
+        $$
+        \begin{align}
+        \tag{2}
+        \begin{bmatrix}
+        rx \\
+        ry
+        \end{bmatrix} = 
+        \begin{bmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        x \\
+        y
+        \end{bmatrix}
+
+        \end{align} 
+
+        $$
+    </p>
+
+    <p class="pubs-block pubs-text">
+        The Generator unit fetches the pixel intensities of the rotated
+        BRIEF point-pairs from the window buffer to generate the
+        description bits as in Eq. (3).
+
+        $$
+            \begin{align}
+                \tag{3}
+                \tau(p;a;b):= \begin{cases}
+                1 &\text{if} \; p(a) < p(b) \\
+                0 &\text{otherwise}
+                \end{cases}
+            \end{align}
+            $$
+    </p>
+
+    <p class="pubs-block pubs-text">
+        The proposed rBRIEF feature
+        extractor is designed with a low-complexity deep-pipelined
+        architecture. The proposed hardware-efficient strategies enable
+        additional pipeline stages to be introduced in the computation
+        units (i.e. 5 stages for Centroid unit, 5 stages in Angle unit,
+        and 9 stages in Rotation unit) to increase throughput, while
+        still achieving significantly reduced area utilization.
+    </p>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Accuracy Evaluation</div>
+    <p class="pubs-block pubs-text">In the Angle unit, an approximation is applied to calculate
+        the centroid angle of a patch centered at a key-point. The
+        centroid angle is discretized into NT possible values and
+        the multiplication of discretized angle values are represented
+        with BT bits. We have used Displacement and Hamming
+        distance to evaluate the effects of our approximation methods
+        for the proposed rBRIEF feature extractor. Displacement in
+        rotated coordinates between the actual calculation and the
+        approximate calculation is employed to quantitatively evaluate
+        the accuracy of the approximation. Hamming distance, which is a metric that is often used in
+        feature matching, is employed to validate the effect of the
+        approximation method on the final output descriptors. The Displacement is defined as follows:
+    </p>
+        $$
+            \begin{align}
+            \tag{4}
+            \text{Displacement} = \sqrt{(rx - rx_{ac})^2 + (ry - ry_{ac})^2}
+            \end{align}
+        $$
+
+        <figure id="pubs-thumbnail">
+            <img src="/assets/images/publications/thinh18/angle.png">
+            <figcaption style="font-size:16px" >Figure 2. The impact of rotation angle discretization on accuracy.</figcaption>
+        </figure>
+    <p class="pubs-block pubs-text">
+        Figure 2 shows the accuracy evaluation of angle discretization
+        with respect to \(N_T\) (number of discretized values of angle) in terms of (a) Displacement and (b) Hamming distance.
+        \(B_T\sharp n \) denotes n bits that are used to
+        represent the discretized angle values. It can be observed that
+        Displacement is significantly reduced when \(N_T\)  increases to
+        25. Hamming distance has the same trend but presents small variation.
+    </p>
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/publications/thinh18/centroid.png">
+        <figcaption style="font-size:16px" >Figure 3. Investigating the number of bits for Centroid moments.</figcaption>
+    </figure>
+
+    <p class="pubs-block pubs-text">
+        The optimal number of bits \(B_C\) for representing centroid
+        moments is also investigated. Figure 3 shows (a) the Displacement and (b) the average Hamming distance of approximate
+        calculation with respect to varying number of bits used for
+        representing the absolute value of centroid moments (i.e.
+        m01, m10). The displacement is also reported with different
+        angle discretization options. \(N_T\sharp n \) denotes that the angle is
+        discretized with \(N_T = \sharp n \) values. It can be observed that
+        the average displacement sharply increases when BC reduces
+        below 9.
+    </p>
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/publications/thinh18/nobits.png">
+        <figcaption style="font-size:16px" >Figure 4. Investigating the impact of number of bits for \(\cos / \sin \)'s values on accuracy</figcaption>
+    </figure>
+
+    <p class="pubs-block pubs-text">
+        In addition, the optimal bit-width of \(\cos \theta \), \(\sin \theta \) values (i.e.
+        \(B_{CS}\)) is investigated to further reduce the hardware complexity
+        of the the Rotator unit. This study is based on the optimal
+        discretization of the centroid angle \(N_{T}\) = 25 which we have
+        determined earlier. Figure 4 illustrates the average coordinate
+        displacement with varying \(B_{CS} \) with respect to each \(N_{T}\) .The
+        displacement for each \(N_{T}\) rapidly decreases as BCS increase
+        to 7. The displacement of all the 25 cases is below 0.25
+        if \(B_{CS}\) = 7 bits is employed to represent the cosθ, sinθ
+        values. Further increase in \(B_{CS}\) does not lead to any notable
+        displacement reduction. Therefore, \(B_{CS}\) = 7 is selected for
+        the proposed architecture.
+    </p>
+
+   
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Paper</div>
+    <p class="pubs-block">Link to the latest version <a href="/assets/pdf/thinh18.pdf">paper</a></p>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Acknowledgement</div>
+    <p class="pubs-block pubs-text">This research project is partially funded by the National
+        Research Foundation Singapore under its Campus for Research Excellence and Technological Enterprise (CREATE)
+        programme.</p>
+</div>

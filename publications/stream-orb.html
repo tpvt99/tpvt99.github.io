@@ -6,9 +6,11 @@ icon: "/assets/images/publications/tran18/icon.png"
 
 <h1 id="pubs-heading">Stream-based ORB Feature Extractor with Dynamic Power Optimization</h1>
 
+<h3 id="pubs-author">Tran Phong, Thinh Hung Pham, Siew-Kei Lam, Meiqing Wu, and Bhavan A. Jasani</h3>
+
 <figure id="pubs-thumbnail">
     <img src="/assets/images/publications/tran18/architecture.png">
-    <figcaption>Figure 1. Feature Extraction Architecture using ORB algorithm.</figcaption>
+    <figcaption style="font-size:16px" >Figure 1. Feature Extraction Architecture using ORB algorithm.</figcaption>
 </figure>
 
 <div class="pubs-block">
@@ -84,17 +86,71 @@ icon: "/assets/images/publications/tran18/icon.png"
 <div class="pubs-block">
     <div class="pubs-block pubs-section">Accuracy Evaluation</div>
     <div class="pubs-block pubs-text">
-        First, we measure the accuracy of the key-points detector in which we use repeatability criterion, which measures the robustness against
+        <span style="font-weight: bold;">First</span>, we measure the accuracy of the key-points detector in which we use repeatability criterion, which measures the robustness against
         variety of changes in image conditions, i.e. rotation, scaling, and illumination. Here we report the difference in repeatability of 
-        <span style="font-style: italic;">Prop2-KD</span> and <span style="font-style: italic;">Prop1-KD</span> which 
+        <span style="font-style: italic;">Prop2-KD</span> and <span style="font-style: italic;">Prop1-KD</span> which is computed in Equation (1).
 
         $$
         \begin{equation}
+            \tag{1}
             \Delta r = \frac{|\text{repeat}_{\text{Prop2-KD}} - \text{repeat}_{\text{Prop1-KD}}|}{\text{repeat}_{\text{Prop1-KD}}} \times 100 \%
         \end{equation}
         $$
-        
+    
+    Figure 2 illustrates the difference in repeatability rate of
+    <span style="font-style: italic;">Prop2-KD</span> 
+    and <span style="font-style: italic;">Prop1-KD</span>, where the x-axis is the truncated
+        bit-width of gradient values (G = 11 to 5). The results show
+        that the repeatability difference increases with larger bit-width
+        truncation which implies higher accuracy degradation. When
+        6 bits of the gradients are truncated, the loss of accuracy
+        of the proposed architecture is marginal (less than 6%) for
+        all datasets, but the gains in terms of power and resource
+        utilization reduction are significant (as shown in the next subsection).
+    
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/publications/tran18/repeatability.png">
+        <figcaption>Figure 2. The difference in repeatability rate of <span style="font-style: italic;">Prop2-KD</span> 
+            and <span style="font-style: italic;">Prop1-KD</span>.</figcaption>
+    </figure>
+    
+    <span style="font-weight: bold;">Second</span>, we compare the descriptor accuracy which is determined by the Hamming distance
+    of the 256-bit descriptor vectors of each implementation(<span style="font-style: italic;">Existing</span> 
+    and <span style="font-style: italic;">Prop2</span>).
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/publications/tran18/hamming.png">
+        <figcaption>Figure 3. Hamming distances with respect to the implementation using double precision.</figcaption>
+    </figure>
+
+    Figure 3 shows the average
+    Hamming distance of <span style="font-style: italic;">Existing</span> 
+    and <span style="font-style: italic;">Prop2</span>. It is evident that our
+    design results in fewer error bits than <span style="font-style: italic;">Existing</span>. Particularly, 
+    the proposed ORB feature descriptor achieves about 50% reduced
+    Hamming distance compared to <span style="font-style: italic;">Existing</span> for all four datasets.
+    One of the main reasons that our design resulted in higher
+    accuracy is the rounding scheme that we have employed in the
+    Angle unit for approximating the nearest index of the \(\cos \theta \) and
+    \(\sin \theta \) LUT, and for determining the point-pairs for binary test.
+    Unlike <span style="font-style: italic;">Existing</span>, we employ rounding to the nearest integer,
+    which produces more accurate results.
+</div>
+</div>
 
 
-    </div>
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Paper</div>
+    <p class="pubs-block pubs-text">Link to the latest version <a href="/assets/pdf/tran18.pdf">paper</a></p>
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Acknowledgement</div>
+    <p class="pubs-block pubs-text">This research project is partially funded by the National
+        Research Foundation Singapore under its Campus for Research Excellence and Technological Enterprise (CREATE)
+        programme</p>
 </div>

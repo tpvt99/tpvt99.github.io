@@ -3,6 +3,12 @@ h1#pubs-heading {
     text-align: center;
 }
 
+#pubs-author {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
 .pubs-block {
     padding: 12px;
 }

@@ -44,4 +44,6 @@
       website: "https://siewkeilam.github.io/ei-research-group/"
   venue: "IEEE Transactions on Very Large Scale Integration (VLSI) Systems, pp. 747 - 756, December 2018"
   citekey: "thinh18"
-  thumbnail: "/assets/images/publications_thumbnails/thinh18.png"
+  thumbnail: "/assets/images/publications/thinh18/thumbnail.png"
+  paper: "/assets/pdf/thinh18.pdf"
+  webpage: "/publications/htao-rbrief.html"

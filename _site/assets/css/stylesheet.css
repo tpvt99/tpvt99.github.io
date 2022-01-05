@@ -145,6 +145,7 @@ strong {
 
   .block {
     padding: 12px;
+    text-align: justify;
   }
 
 .introduction {
@@ -211,4 +212,8 @@ strong {
   padding: 0px 0px 5px 0px;
   display: block;
   font-style: italic;
+}
+
+.research-proj .pub-info > a {
+  padding-right: 10px;
 }

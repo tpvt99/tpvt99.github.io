@@ -10,33 +10,15 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/pubs_webpage.css">
 
     <script src="/assets/js/simplejs.js"></script>
-
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        TeX: {
-          equationNumbers: { autoNumber: "AMS" },
-          tagSide: "right"
-        },
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-          processEscapes: true
-        }
+        tex: { equationNumbers: { autoNumber: "AMS" } }
       });
-      MathJax.Hub.Register.StartupHook("TeX AMSmath Ready", function () {
-        MathJax.InputJax.TeX.Stack.Item.AMSarray.Augment({
-          clearTag() {
-            if (!this.global.notags) {
-              this.super(arguments).clearTag.call(this);
-            }
-          }
-        });
-      });
-    </script>
-
-    <script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+      </script>
+      
     <link rel="icon" href="{{page.icon}}">
 
     <title>{{ page.title }}</title>
