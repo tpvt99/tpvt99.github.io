@@ -38,3 +38,7 @@ h1#pubs-heading {
 #pubs-thumbnail figcaption {
     line-height: 1.5em;
 }
+
+sub {
+    position: relative; top: -0.5em; font-size: 80%;
+}

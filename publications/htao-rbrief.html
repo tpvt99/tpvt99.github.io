@@ -6,7 +6,12 @@ icon: "/assets/images/publications/thinh18/icon.png"
 
 <h1 id="pubs-heading">High-Throughput and Area-Optimized Architecture for rBRIEF Feature Extraction</h1>
 
-<h3 id="pubs-author">Thinh Hung Pham, Phong Tran, Siew-Kei Lam</h3>
+<h1 id="pubs-author">Thinh Hung Pham, Phong Tran, Siew-Kei Lam</h1>
+
+<div class="pubs-block">
+    <p style="text-align:center; font-size:16px">Nanyang Technological University, Singapore</p>
+</div>
+
 
 <figure id="pubs-thumbnail">
     <img src="/assets/images/publications/thinh18/rbrief.png">
@@ -241,8 +246,63 @@ In addition, the proposed architecture is able to process highresolution (1920×
         displacement reduction. Therefore, \(B_{CS}\) = 7 is selected for
         the proposed architecture.
     </p>
+</div>
 
-   
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Hardware Utilization</div>
+
+    $$
+    \text{TABLE I: Comparision of Hardware Utilization}\\
+    $$
+
+    $$
+    \begin{array}{l c c}
+        & Existing[1] & Proposed \\
+        \hline
+        N_D & 4 & 4 \\
+        N_T & 16 & 25 \\
+        B_C & 24 & 12 \\
+        B_T & 16 & 11 \\
+        B_{CS} & 9 & 7 \\
+        \hline
+        \text{Logic Elements} & 19720 & 12523 \\
+        ALMs & 21436 & 10019 \\
+        DSP & 92 & 0 \\
+        \text{Memory bits} & 76000 & 117739 \\
+        f_max (MHz) & 150 & 177 \\
+
+    \end{array}
+    $$
+    <p class="pubs-block pubs-text">
+        Table I summarizes the design parameters and compares the hardware utilization of the proposed implementation (denoted
+        as Proposed) with the implementation in [1] (denoted as Existing). To obtain a fair comparison, both implementations
+        targets the Arria V GX 5AGXFB3 device and employ the
+        same number of descriptor generator components \(N_{D}\). It can be observed that the proposed implementation
+        consumes significantly reduced number of Logic Elements
+        (LEs) and Adaptive Logic Modules (ALMs) compared to the existing implementation. The LE and ALM utilization
+        of Proposed is only 63.5% and 46.7%, respectively, of the
+        existing architecture. The memory bits usage of Proposed is
+        larger than that of Existing. However, the memory bits required
+        in both implementations consume only a fraction (i.e. about
+        0.6%) of the total FPGA space. Interestingly, the proposed implementation avoids the use of power-hungry DSP blocks due
+        to utilization of the constant multiplier blocks. In contrast, the
+        existing implementation employs 92 DSP blocks. Furthermore,
+        the hardware efficient strategies adopted by Proposed have
+        resulted in a higher maximum clock frequency. In particular,
+        Proposed achieves a higher operating frequency of 177 MHz
+        compared to the clock frequency of 150 MHz for Existing on
+        the same target FPGA platform
+   </p>
+
+   <p class="pubs-block">
+    [1] J. Weberruss, L. Kleeman, D. Boland, and T. Drummond, 
+    <a href="https://ieeexplore.ieee.org/document/8056856" target="_blank">“FPGA Acceleration of Multilevel ORB Feature Extraction for Computer Vision,”</a>
+    in 27th International Conference on Field Programmable Logic and
+    Applications (FPL), Sep. 2017
+   </p>
 </div>
 
 <div class="divider"></div>

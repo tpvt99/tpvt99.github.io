@@ -1,0 +1,8 @@
+- name: "Routing Engine for Y3 Technologies"
+  id: "y3engine"
+  thumbnail: "/assets/images/workexp/y3engine/y3_engine.png"
+  webpage: "/workexp/y3engine.html"
+  timeline: "Fujitsu-SMU Corp Lab, March 2021 - now"
+  intro: "In this work, I extend our developed engine 
+    to cater for three main requirements from Y3 Technoligies: compatibility constraints, dynamic time/distance matrix
+    and optimized costs for each delivery routes."
