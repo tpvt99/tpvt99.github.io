@@ -3,24 +3,26 @@
   thumbnail: "/assets/images/workexp/y3engine/y3_engine.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2021 - now"
   intro: "In this work, I extend our developed engine 
-    to cater for three main requirements from Y3 Technoligies: compatibility constraints, dynamic time/distance matrix
+    to cater for three main requirements from Y3 Technoligies: compatibility constraints (relationship between
+    vehicles and locations), dynamic time/distance matrix (due to road construction)
     and optimized costs for each delivery routes."
 
-- name: "Grand Vision"
+- name: "Grand Vision for Singapore Police Force"
   id: "gv"
   thumbnail: "/assets/images/workexp/gv/gv.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2019 - March 2021"
-  intro: "In this work, I proposed a time-slot division strategy to find the lowest number 
-  of vehicles before the neighborhood search  and post-optimized the schedule plans with redistributions of orders
-   while violating minimum of soft constraints. I also engineered the frontend and backend of the system.
+  intro: "I developed two neural network models: i) WCGAN combined with linear regression on 
+  tabular inputs and ii) Spatial-Temporal network in addition with VAE on images data to predict the crimes' locations and occurences.
+  I also implemented local search to plan ahead of the patrol shift work plans with minimum time shift between locations.
   "  
+  webpage: "/workexp/gv-spf.html"
 
 - name: "Collaborative Urban Delivery Optimization"
   id: "cudo"
   thumbnail: "/assets/images/workexp/cudo/cudo.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2019 - March 2021"
-  intro: "In this work, I proposed a time-slot division strategy to find the lowest number 
+  intro: "In this work, I used machine learning to predict the estimated time of arrival (ETA) between 
+  two locations. I proposed a time-slot division strategy to find the lowest number 
   of vehicles before the neighborhood search  and post-optimized the schedule plans with redistributions of orders
    while violating minimum of soft constraints. I also engineered the frontend and backend of the system.
   "
-

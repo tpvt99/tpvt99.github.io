@@ -1,0 +1,89 @@
+---
+layout: publications
+title: "GRAND-VISION: An Intelligent System for Optimized Deployment Scheduling of Law Enforcement Agents"
+icon: "/assets/images/publications/jon21/smu.png"
+---
+
+<h1 id="pubs-heading">GRAND-VISION: An Intelligent System for Optimized Deployment Scheduling of Law Enforcement Agents</h1>
+
+<figure id="pubs-thumbnail">
+    <img src="/assets/images/publications/jon21/thumbnail.png">
+    <figcaption style="font-size:16px" >Figure 1. Agents patrol their assigned patrol regions. When
+        an incident occurs, <br> the nearest agent is assigned to attend,
+        with the aim of meeting the response time QoS requirements.</figcaption>
+</figure>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Project Overview</div>
+    <div class="pubs-text pubs-block">
+        Law enforcement agencies in dense urban environments,
+        faced with a wide range of incidents to handle and limited
+        manpower, are turning to data-driven AI to inform their policing strategy. In this project, 
+        we present a patrol scheduling system called GRAND-VISION: Ground Response Allocation
+        and Deployment - Visualization, Simulation, and Optimization. <span style="color:red">The system employs deep learning to generate incident
+        sets </span>that are used to train a patrol schedule that can accommodate varying manpower, break times, manual pre-allocations,
+        and a variety of spatio-temporal demand features. The complexity of the scenario results in a system with real world
+        applicability, which we demonstrate through simulation on
+        historical data obtained from a large urban law enforcement
+        agency.
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">My work: the first neural network WCGAN with linear regression</div>
+    <div class="pubs-text pubs-block">
+        In the beginning of the project, we experimented a generative adversarial network to generate the incidents. 
+        The data we have was crime's occurence, locations, urgency, numbers of police attended and engagement time. 
+        For locations, we extracted latitude and longitude features.
+        For occurence, we extracted thirteen boolean data: eleven public holidays of Singapore, 
+        whether the day is weekend or weekday, and the day within week.
+        We further encoded the cyclical continous features of time (into cosin and sine), such as day of weeks, day of years and week of months.
+        For other features, we keep them as is. 
+        We used WCGAN to predice desired features of a crime which are latitude, longitude, 
+        crimes' occurence in minutes from midnight, urgency, engagement time and 
+        number of police attended. We conditioned on the boolean data of occurence. 
+        However, there is still one missing piece required in WCGAN which is the number of samples we want it to generate. Thus,
+        we employed Ridge regression method to predict the number of incidents. The data we used for training is the cyclical continous features.
+    </div>
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/workexp/gv-spf/wcgan.png" style="max-width: 80%;">
+        <figcaption style="font-size:16px">Figure 2. WCGAN with Ridge Regression.</figcaption>
+    </figure>
+    
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">My work: the second neural network STResnet with VAE</div>
+    <div class="pubs-text pubs-block">
+        In the beginning of the project, we experimented a generative adversarial network to generate the incidents. 
+        The data we have was crime's occurence, locations, urgency, numbers of police attended and engagement time. 
+        For locations, we extracted latitude and longitude features.
+        For occurence, we extracted thirteen boolean data: eleven public holidays of Singapore, 
+        whether the day is weekend or weekday, and the day within week.
+        We further encoded the cyclical continous features of time (into cosin and sine), such as day of weeks, day of years and week of months.
+        For other features, we keep them as is. 
+        We used WCGAN to predice desired features of a crime which are latitude, longitude, 
+        crimes' occurence in minutes from midnight, urgency, engagement time and 
+        number of police attended. We conditioned on the boolean data of occurence. 
+        However, there is still one missing piece required in WCGAN which is the number of samples we want it to generate. Thus,
+        we employed Ridge regression method to predict the number of incidents. The data we used for training is the cyclical continous features.
+    </div>
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/workexp/gv-spf/wcgan.png" style="max-width: 80%;">
+        <figcaption style="font-size:16px">Figure 2. WCGAN with Ridge Regression.</figcaption>
+    </figure>
+    
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Publication based on the project</div>
+    <p class="pubs-block">Link to the latest version <a href="/assets/pdf/jon21.pdf">paper</a></p>
+    <p class="pubs-block">The presentation at ICAPS 2021 is given at this link 
+        <a href="https://www.youtube.com/watch?v=jsxGKxXSeNs" target="_blank">Video</a></p>
+
+</div>
