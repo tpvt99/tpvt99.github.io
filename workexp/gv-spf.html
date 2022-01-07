@@ -58,6 +58,13 @@ icon: "/assets/images/publications/jon21/smu.png"
 <div class="pubs-block">
     <div class="pubs-section pubs-block">My work: the second neural network STResnet with VAE</div>
     <div class="pubs-text pubs-block">
+        We were aware that the crimes are related in both spatial and temporal dimensions, in which
+        the crimes occur in some specific locations and frequently at a cyclic interval. Thus we decided to learn a spatio-temporal model
+        that can capture both the information. We use an appropriate resolution in latitude and longitude so that the image's intensities 
+        have a meaningful pattern. In a similar way, we sample the frequency of crimes hourly so that the number of incidents are large.
+        We use STResnet[1] as a baseline architecture. Because the scheduling part in our systems requires different scenarios of crimes across days,
+        thus we need to add a stochastic model. We used VAE for this purpose. The Encoder of VAE 
+        
         In the beginning of the project, we experimented a generative adversarial network to generate the incidents. 
         The data we have was crime's occurence, locations, urgency, numbers of police attended and engagement time. 
         For locations, we extracted latitude and longitude features.
