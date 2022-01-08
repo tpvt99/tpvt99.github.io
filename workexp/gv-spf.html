@@ -58,31 +58,27 @@ icon: "/assets/images/publications/jon21/smu.png"
 <div class="pubs-block">
     <div class="pubs-section pubs-block">My work: the second neural network STResnet with VAE</div>
     <div class="pubs-text pubs-block">
-        We were aware that the crimes are related in both spatial and temporal dimensions, in which
-        the crimes occur in some specific locations and frequently at a cyclic interval. Thus we decided to learn a spatio-temporal model
-        that can capture both the information. We use an appropriate resolution in latitude and longitude so that the image's intensities 
-        have a meaningful pattern. In a similar way, we sample the frequency of crimes hourly so that the number of incidents are large.
-        We use STResnet[1] as a baseline architecture. Because the scheduling part in our systems requires different scenarios of crimes across days,
-        thus we need to add a stochastic model. We used VAE for this purpose. The Encoder of VAE 
+        We observe that the crimes are usually occur in some specific locations and frequently at a cyclic interval, yet
+        the tabular representation in the first neural network does not capture both information. Thus we decided to research a spatio-temporal model
+        that can learn these meaningful patterns. We engineered an appropriate resolution in space and time so that the image's intensities 
+        exhibits locality and stationary so that a CNN architecture could learn well.
+        <br>
+        We used STResnet[1] as a baseline architecture. 
+        Because the deployment scheduler, which performs the allocations of on-duty agents in our systems,
+        requires different scenarios of crimes, we added VAE network into STResnet to generate multiple events.
+        The final architecture is called Stochastic STResnet is shown in Figure 3.
         
-        In the beginning of the project, we experimented a generative adversarial network to generate the incidents. 
-        The data we have was crime's occurence, locations, urgency, numbers of police attended and engagement time. 
-        For locations, we extracted latitude and longitude features.
-        For occurence, we extracted thirteen boolean data: eleven public holidays of Singapore, 
-        whether the day is weekend or weekday, and the day within week.
-        We further encoded the cyclical continous features of time (into cosin and sine), such as day of weeks, day of years and week of months.
-        For other features, we keep them as is. 
-        We used WCGAN to predice desired features of a crime which are latitude, longitude, 
-        crimes' occurence in minutes from midnight, urgency, engagement time and 
-        number of police attended. We conditioned on the boolean data of occurence. 
-        However, there is still one missing piece required in WCGAN which is the number of samples we want it to generate. Thus,
-        we employed Ridge regression method to predict the number of incidents. The data we used for training is the cyclical continous features.
+        
     </div>
 
     <figure id="pubs-thumbnail">
-        <img src="/assets/images/workexp/gv-spf/wcgan.png" style="max-width: 80%;">
-        <figcaption style="font-size:16px">Figure 2. WCGAN with Ridge Regression.</figcaption>
+        <img src="/assets/images/workexp/gv-spf/stresnet.png" style="max-width: 80%;">
+        <figcaption style="font-size:16px">Figure 3. Stochastic STResnet Architecture.</figcaption>
     </figure>
+
+    <p class="pubs-block">[1] Junbo Zhang, Yu Zheng, Dekang Qi, <a href="https://dl.acm.org/doi/10.5555/3298239.3298479" target="_blank">
+        Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction</a>, AAAI 2017
+    </p>
     
 </div>
 

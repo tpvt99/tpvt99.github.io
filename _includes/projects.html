@@ -1,0 +1,29 @@
+{% for project in site.data.projects %}
+<div class="research-proj block">
+    <div class="research-summary">
+        <div style="overflow:hidden">
+            <div style="max-width: 50%; float:left;">
+                {% if project.webpage %}
+                <a href="{{project.webpage}}" class="pub-name" target="_blank">{{ project.name}} </a>
+                {% else %}
+                    <p class="pub-name" style="color:black;">{{ project.name}} </p>
+                {% endif %}
+            </div>
+            <div style="max-width: 50%; float:right;">
+                {{project.timeline}}
+            </div>
+            
+        </div>
+
+        <p class="pub-teammates" style="font-style:italic; padding:5px 0px 5px 0px;">
+            {{ project.teammates }}
+        </p>
+         
+
+        <p class="pub-intro" style="font-size:14px; padding:5px 0px 5px 0px;">
+            {{ project.intro }}
+        </p>
+    </div>
+    
+</div>
+{% endfor %}

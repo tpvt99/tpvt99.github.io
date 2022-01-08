@@ -1,0 +1,164 @@
+---
+layout: publications
+title: "Cache-adaptive Matrix Multiplication"
+icon: "/assets/images/projects/cacheadaptive/favicon.ico"
+---
+
+<h1 id="pubs-heading">Cache-adaptive Matrix Multiplication</h1>
+<h3 id="pubs-author">Apivich Hemachandra, Tran Phong</h3>
+
+<div class="pubs-block">
+    <p style="text-align:center; font-size:16px">CS5234 Algorithms at Scale</p>
+    <p style="text-align:center; font-size:16px">National University of Singapore, Singapore</p>
+</div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Abstract</div>
+    <div class="pubs-text pubs-block">
+        In our project, we empirically investigate the performance of various matrix multiplication
+        algorithms under a cache-adaptive model. We try to simulate a two-level memory hierarchy and
+        see how the algorithm performs in the external memory model when the cache changes size. We
+        then attempt to test the algorithms on a real machine, by checking the number of page faults the
+        algorithm requires with varying cache availability. Both the simulation and on the real machine
+        demonstrate that cache-adaptive algorithms are more stable as the cache profile varies.
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Theory and Algorithm</div>
+    <div class="pubs-text pubs-block">
+        Formally, the cache-adaptive model can be seen as an extension to the disk-access model (DAM),
+        where the costs are only incurred when the algorithm has to read or write information to the disk
+        [1]. The cache-adaptive model is the case where we allow the size of the cache to change during the
+        execution of the program. The intention of the cache-adaptive model is to mimic situations in real life
+        where the cache available to a program is not stationary but is being divided based on the CPU and
+        on the needs of the other competing processes.
+    </div>
+    <div class="pubs-text pubs-block">
+        We can specify the memory profile of a cache as a function m : \( N \times N \) where \( m(t) \) is defined the
+        be the number of cache blocks the cache has at the tth cache miss of the algorithm, and let the total
+        cache size \( M(t) = B · m(t) \) where \( B \) is the cache block size [1].
+    </div>
+
+    <div class="pubs-text pubs-block">
+        <span style="font-weight: bold">Definition 1.</span> Cache-adaptivity[1]
+        <ul style="list-style-type: disc; list-style-position: inside;">
+            <li>
+                For any memory profile \( m \), the c-speed augmentation of \( m \) is defined as the memory profile
+                \( m'(t) = c · m(t) \).
+            </li>
+            <li>
+                For a problem \( P \), an algorithm \( A  \) is optimal in the cache-adaptive model if there exists some \( c \)
+            and a large enough problem input size that, such that for any memory profile \( m \), the worst case
+            running time of \( A \) on a c-speed augmentation of m is better than the worst-case running time of
+            any other algorithm solving \( P \) on the memory profile \( m \).
+            </li>
+        </ul>
+    </div>
+
+    <div class="pubs-text pubs-block">
+        The cache-adaptive algorithm is shown below.
+    </div>
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/projects/cacheadaptive/algo.png">
+    </figure>
+
+    <p>[1] Bender, M. A., Ebrahimi, R., Fineman, J. T., Ghasemiesfeh, G., Johnson, R., and
+        McCauley, S. Cache-adaptive algorithms. In Proceedings of the Twenty-Fifth Annual ACMSIAM Symposium on Discrete Algorithms (USA, 2014), SODA ’14, Society for Industrial and
+        Applied Mathematics, p. 958–971.</p>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Experiments</div>
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/projects/cacheadaptive/arch.png">
+        <figcaption style="font-size:16px" >Figure 1. Cache Structure.</figcaption>
+    </figure>
+    <div class="pubs-text pubs-block">
+        1. The class <span style="font-weight: bold;">Block</span> represents the block data 
+        in both <span style="font-weight: bold;">Memory</span> and <span style="font-weight: bold;">Cache</span>. 
+        It is a list of integers and each element
+        has 4-byte size. We utilize the object reference trick in which when we write to <span style="font-weight: bold;">Block</span> 
+        in <span style="font-weight: bold;">Cache</span>, the
+        contents are also updated in <span style="font-weight: bold;">Memory</span>. 
+    </div>
+    <div class="pubs-text pubs-block">
+        2. The  class <span style="font-weight: bold;">Memory</span> plays as a memory to store data. 
+        It has only 2 main functions. The first function is named
+        <span style="font-style: italic;">read_block_from_memory()</span>, which is used to 
+        return a <span style="font-weight: bold;">Block</span> from a requested address. The second
+        function is <span style="font-style: italic;">allocate()</span> which is used to initialize the memory according to the matrix data we used for
+        multiplication. We store matrix in row-major order.
+    </div>
+    <div class="pubs-text pubs-block">
+        3. Our <span style="font-weight: bold;">Cache</span> class is the linchpin of the simulator.
+         It communicates with <span style="font-weight: bold;">Memory</span> through <span style="font-weight: bold;">CPU</span>
+        and transferring data using <span style="font-weight: bold;">Block</span>.
+    </div>
+
+    <div class="pubs-text pubs-block">
+        4. There are three main eviction policies we implemented: <span style="font-weight: bold;">LRUPolicy</span> (Least Recently Used), 
+        <span style="font-weight: bold;">LFUPolicy</span>
+        (Least Frequently Used), and <span style="font-weight: bold;">FIFOPolicy</span> (First-In First-Out). 
+        
+        <span style="font-weight: bold;">LRUPolicy</span> evicts least recently
+        used <span style="font-weight: bold;">Block</span>. To do this, the algorithm maintains an OrderedDict which has Doubly Linked List as
+        underlying data structure. Everytime a block is accessed, it moves the index of block to the end. When
+        cache is full, it would remove the index of blocks at the beginning. 
+        
+        In <span style="font-weight: bold;">LFUPolicy</span>, the policy evicts
+        the one with least frequently used. We use a hashmap to maintain the frequencies of <span style="font-weight: bold;">Block</span> index. In
+        removing phase, we need to loop through hashmap to find the index with least frequencies and remove
+        it. 
+        
+        For <span style="font-weight: bold;">FIFOPolicy</span>, cache is evicted in order as they added. We maintain an OrderDicted to serve
+        this purpose.
+    </div>
+
+    <div class="pubs-text pubs-block">
+        5. <span style="font-weight: bold;">CPU</span> contains three important functions. 
+        The first one is <span style="font-style: italic;">read()</span> which is used to read a <span style="font-weight: bold;">Block</span> from
+        <span style="font-weight: bold;">Cache</span>. 
+        If this <span style="font-weight: bold;">Block</span> is not inside cache, 
+        it would be fetched from Memory and store inside
+        <span style="font-weight: bold;">Cache</span>. 
+        The second function is <span style="font-style: italic;">write()</span> which writes a byte to a <span style="font-weight: bold;">Block</span> 
+        in <span style="font-weight: bold;">Cache</span>. 
+        If no existing <span style="font-weight: bold;">Block</span>,
+        then the function requests <span style="font-weight: bold;">Block</span> from <span style="font-weight: bold;">Memory</span>, 
+        update this <span style="font-weight: bold;">Block</span>, and write the <span style="font-weight: bold;">Block</span> 
+        to <span style="font-weight: bold;">Cache</span>.
+        The final function is for the purpose of cache-adaptive: <span style="font-style: italic;">change_cache_size()</span>. 
+        It updates the size of the cache every time a cache miss occurs according to a specific memory profile.
+    </div>
+
+    <div class="pubs-text pubs-block">
+        6. This class is responsible for changing cache's size every time a cache miss occurs as in [1]. The memory
+        profile is as followed:
+        $$
+            m(t) = \begin{cases}
+            \text{$m$} & \text{if $t \leq m^{5/2}$} \\
+            \text{$2m^{5/2} - t$} & \text{if $m^{5/2} < t < 2m^{5/2}-B$} \\
+            \text{$B$} & \text{if $t \geq 2m^{5/2} - B$}
+        \end{cases}
+        $$
+
+        where \(t\) is the \(t^{th} \) cache misses, \( m = c_1 B\), where \(c_1\) is any constant speed augmentation. Here we
+    choose \(c_1 = 1\).
+    </div>
+
+    <div class="pubs-text pubs-block">
+        For the results of cache-adaptive algorithms compared to other algorithms (e.g., naive, cache-aware, and cache-oblivious)
+        for matrix multiplication, please see the <a class="pubs-text" href="/assets/pdf/CS5234_Project.pdf">report</a>.
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Report</div>
+    <p class="pubs-block pubs-text">Link to the <a class="pubs-text" href="/assets/pdf/CS5234_Project.pdf">report</a></p>
+</div>

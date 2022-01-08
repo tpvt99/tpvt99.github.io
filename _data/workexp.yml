@@ -1,6 +1,5 @@
 - name: "Routing Engine for Y3 Technologies"
   id: "y3engine"
-  thumbnail: "/assets/images/workexp/y3engine/y3_engine.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2021 - now"
   intro: "In this work, I extend our developed engine 
     to cater for three main requirements from Y3 Technoligies: compatibility constraints (relationship between
@@ -9,7 +8,6 @@
 
 - name: "Grand Vision for Singapore Police Force"
   id: "gv"
-  thumbnail: "/assets/images/workexp/gv/gv.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2019 - March 2021"
   intro: "I developed two neural network models: i) WCGAN combined with linear regression on 
   tabular inputs and ii) Spatial-Temporal network in addition with VAE on images data to predict the crimes' locations and occurences.
@@ -19,7 +17,6 @@
 
 - name: "Collaborative Urban Delivery Optimization"
   id: "cudo"
-  thumbnail: "/assets/images/workexp/cudo/cudo.png"
   timeline: "Fujitsu-SMU Corp Lab, March 2019 - March 2021"
   intro: "In this work, I used machine learning to predict the estimated time of arrival (ETA) between 
   two locations. I proposed a time-slot division strategy to find the lowest number 

@@ -1,0 +1,30 @@
+- name: "Cache-adaptive Matrix Multiplication"
+  id: "cacheadaptive"
+  timeline: "NUS, Singapore, Nov. 2021"
+  teammates: "Apivich Hemachandra, Tran Phong"
+  intro: "We designed cache-efficient (cache-oblivious and cache-adaptive) algorithms for matrix multiplication
+  and experimented on a simulated cache and a real computer."
+  webpage: "/projects/cacheadaptive.html"
+
+- name: "Controlling car in Duckietown using Deep Q-Learning"
+  id: "duckietown"
+  timeline: "NUS, Singapore, May 2021"
+  teammates: "Lim Sze Chi, Tran Phong"
+  intro: "We developed Deep Q-Learning to automate the Duckiebot to follow the lane and reduce speed near the traffic light.
+  We also employed Autoencoder network to extract good features."
+  webpage: "/projects/duckietown.html"
+
+- name: "Vietnamese Character Recognition"
+  id: "vichar"
+  timeline: "HCMUT, Vietnam, Sep. 2017"
+  teammates: "Le Minh Quang, Tran Phong"
+  intro: "We collected comprehensive data of all Vietnamese characters to support the thesis proposal and 
+  applied a standard CNN model to recognize Vietnamese characters with 95% top-1 accuracy"
+
+- name: "LC3b CPU "
+  id: "lc3bcpu"
+  timeline: "HCMUT, Vietnam, Feb. 2017"
+  teammates: "Tran Phong"
+  intro: "We designed a core CPU (LC3b) architecture of Illinois University with Verilog language, verified by VCS tool in Linux
+  environment, and evaluated on FPGA (DEII Kit of Altera company).
+  We proposed a pipeline architecture that functioned properly sixteen machine instructions and achieved 125 Mhz"

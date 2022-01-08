@@ -1,0 +1,85 @@
+---
+layout: publications
+title: "Controlling car in Duckietown using Deep Q-Learning"
+icon: "/assets/images/projects/duckietown/favicon.ico"
+---
+
+<h1 id="pubs-heading">Controlling car in Duckietown using Deep Q-Learning</h1>
+<h3 id="pubs-author">Lim Sze Chi, Tran Phong</h3>
+
+<div class="pubs-block">
+    <p style="text-align:center; font-size:16px">CS5478 Intelligent Robots: Algorithms and Systems</p>
+    <p style="text-align:center; font-size:16px">National University of Singapore, Singapore</p>
+</div>
+
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Introduction</div>
+    <div class="pubs-text pubs-block">
+        The purpose of the project is to control a car in a duckietown
+        environment to run at the fastest speed and slow down when it is near the traffic light.
+        We used an end-to-end neural network learning approach, specifically a Deep
+        Q-learning agent (DQN). We trained our DQN agent by experience replay memory and used a Convolutional Neural Network (CNN)
+        as a function approximator that maps input observations by Duckiebot to output actions. We used the default rewards as provided
+        by the Duckietown repository and adjusted the functions to cope with the traffic light requirements.
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Methods</div>
+    <p class="pubs-block" style="font-size: 18px">1. Architecture</p>
+    <div class="pubs-text pubs-block">
+        We used DQN for training a policy to output actions given the image inputs. We give the agent high exploration rate 
+        at the beginning of training. Hence, the agent takes a random action and stores its
+        transition to a memory buffer for multiple episodes most of the time. This memory
+        buffer stores all the most recent transitions that an agent took up to a maximum length, and contains (state, action) pairs and their
+        corresponding (next_state, reward) result. As the number of episodes increases, the exploration rate decays exponentially as designed
+        and the agent will slowly switch to exploitation and execute actions from the CNN model output. Our DQN architecture is shown at Figure 1.
+    </div>
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/projects/duckietown/dqn.png">
+        <figcaption style="font-size:16px" >Figure 1. DQN Architecture.</figcaption>
+    </figure>
+
+    <p class="pubs-block" style="font-size: 18px">2. Choice of Input Extractions</p>
+    <div class="pubs-text pubs-block">
+        We used a CNN architecture from the paper Almasi et. al [1].
+        The features extraction steps are similar: resizing input to 12.5% of the original DuckietownEnv observations, 
+        and then normalizing pixel values from 0 to 1. We also used their proposed idea of concatenating past observations
+        to specially guide the agents at turns. There are some modifications which are furthed detailed in the report.
+    </div>
+
+    <p class="pubs-block" style="font-size: 18px">3. Action Representations</p>
+    <div class="pubs-text pubs-block">
+        The DuckietownEnv accepts the discretized values of velocity in range [0,1] and streering angles spanning from \( [-\pi, +\pi] \).
+        In the simplest way, we give a large discretization bins of steering angles but the agent does not respond well to the traffic light 
+        because of extremely low speed. We leveraged a pure-pursuit controller [2] to give us the picture of steering angles at the low speed. 
+        At low speeds, the pure-pursuit controller outputs a huge range of steering angles from \( 10^{-3} \rightarrow 10^{-1}\). Thus we tried to 
+        have a large discretized values around this range and this made the paths smoother when travelling at low speed. 
+    </div>
+
+    <p class="pubs-block" style="font-size: 18px">4. Reward Shaping</p>
+    <div class="pubs-text pubs-block">
+        We use the default rewards provided by the DuckietownEnv. However, because of the requirement of low speed when nearing the traffic
+        light, we need to adjust to scale rightly with the default values. The reward shaping and the modification (the orange box) are in Figure 2.
+        For a detailed explaination, please refer to the report.
+    </div>
+
+
+    <figure id="pubs-thumbnail">
+        <img src="/assets/images/projects/duckietown/reward.png">
+        <figcaption style="font-size:16px" >Figure 2. Reward Shaping.</figcaption>
+    </figure>
+
+    <p class="pubs-block">[1] Almási, P., Moni, R., & Gyires-Tóth, B. (2020). Robust Reinforcement Learning-based Autonomous Driving Agent for Simulation
+        and Real World. Proceedings of the International Joint Conference on Neural Networks.</p>
+    <p class="pubs-block">[2] <a href="https://github.com/duckietown/challenge-aido_LF-baseline-behavior-cloning">Pure-pursuit Controller Script</a></p>
+</div>
+
+
+<div class="divider"></div>
+<div class="pubs-block">
+    <div class="pubs-section pubs-block">Report</div>
+    <p class="pubs-block pubs-text">Link to the <a class="pubs-text" href="/assets/pdf/cs5478_report.pdf">report</a></p>
+</div>

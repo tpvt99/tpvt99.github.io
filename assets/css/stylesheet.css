@@ -73,6 +73,11 @@ a:focus, a:hover {
     text-decoration: none;
 }
   
+a.pub-name:focus, a.pub-name:hover {
+  color: #f09228;
+  text-decoration: none;
+}
+  
 body,
   td,
   th,
