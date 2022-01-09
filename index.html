@@ -16,24 +16,28 @@
   <body class="body">
     {% include navigation.html %}
     <div class="divider"></div>
-    <div class="introduction block">
-        <div class="" style="width:40%;float:left">
-            <img src="assets/images/profile.png" style="width:100%;height:100%;">
+    <div class="introduction block" style="display:flex">
+        <div class="" style="width:30%;float:left;">
+            <img src="assets/images/profile.jpg" 
+            style="width:190px;height:190px;border-radius:50%;display: table-cell; margin:auto;position: relative;
+            top: 50%; transform: translateY(-50%);">
         </div>
 
-        <div class="" style="width:60%;float:left">
+        <div class="" style="width:70%;float:left">
             <p class="name block" align="center">Tran Phong </p>
             <p class="block">
                 I am a research enginneer at 
                 <a href="https://unicen.smu.edu.sg/" target= "_blank" >Fujitsu-SMU Urban Computing and Engineering (UNiCEN) Corp. Lab</a>, 
-                where I work with Professor <a href="https://faculty.smu.edu.sg/profile/lau-hoong-chuin-631" target= "_blank" >Lau Hoong Chuin</a> 
-                to engineer a routing engine for logistics companies.
+                where I work in joint projects funded by <a href="https://aisingapore.org/" target="_blank">AISG</a> 
+                to engineer routing engines for logistics companies 
+                and by <a href="https://www.police.gov.sg/" target="_blank">SPF</a> to predict incidents
+                and optimize the deployment of law-enforcement agents.
                 I am also a part-time Master student in Computer Science at
                  <a href="https://www.comp.nus.edu.sg/" target="_blank">NUS, School of Computing</a>. Before joining NUS, I received Bachelor of Engineering in Electrical 
                  Engineering at HCMC University of Technology in Vietnam.
             </p>
             <p class="block">
-                <a href="pbtran@u.nus.edu" onclick="copyURI(event)">Email</a>
+                <a href="mailto:pbtran@u.nus.edu">Email</a>
                 <span>&sol;</span>
                 <a href="https://scholar.google.com/citations?user=-MjdFtAAAAAJ&hl=en" target="_blank">Google Scholar</a> 
                 <span>&sol;</span> 
@@ -44,11 +48,16 @@
     <div class="divider"></div>
     <div class="research block">
         <p class="heading block"> Research</p>
-        <p class="block">I am interested in computer vision and robotic manipulation.</p>
-        <p class="block">During undergraduates, I had one year as a visiting student at NTU, Singapore where I work with
-        <a href="https://scholar.google.com/citations?user=HsMFSVsAAAAJ&hl=en" target="_blank">Dr. Thinh</a> on a hardware acceleration 
-        project for ORB object detection. As an engineer in Fujitsu-SMU Corp. Lab, I  develop a deep learning model for incidents predictions
+        <p class="block">During undergraduates, I had one year as a visiting student at NTU, Singapore where I worked with
+        <a href="https://scholar.google.com/citations?user=HsMFSVsAAAAJ&hl=en" target="_blank">Dr. Thinh Pham</a> on a hardware acceleration 
+        project for ORB object detection in self-driving cars system. 
+        As an engineer in Fujitsu-SMU Corp. Lab, 
+        I  developed a deep learning model for <a href= "http://127.0.0.1:4000/workexp/gv-spf.html" target="_blank">incidents predictions </a>
         and a routing engine for vehicle schedulings.
+        </p>
+        <p class="block">I am interested in computer vision and reinforcement learning for robotic manipulations. In particularly,
+            I want to study an end-to-end vision-based policy that can learn tasks autonomously and generalize to new tasks 
+            without human supervisions.
         </p>
     </div>
 
@@ -69,5 +78,13 @@
         <p class="heading block">Projects</p>
         {% include projects.html %}
     </div>
+    
+    <div>
+
+    <div class="block">
+        <p class="block" style="float:right">Theme from <a href="https://jonbarron.info/" target="_blank">Jon Barron</a>. Developed using 
+            <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.</p>
+    </div>
+    
   </body>
 </html>

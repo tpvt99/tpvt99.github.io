@@ -19,7 +19,7 @@
   timeline: "HCMUT, Vietnam, Sep. 2017"
   teammates: "Le Minh Quang, Tran Phong"
   intro: "We collected comprehensive data of all Vietnamese characters to support the thesis proposal and 
-  applied a standard CNN model to recognize Vietnamese characters with 95% top-1 accuracy"
+  applied a standard CNN model to recognize Vietnamese characters with 95% top-1 accuracy."
 
 - name: "LC3b CPU "
   id: "lc3bcpu"
@@ -27,4 +27,4 @@
   teammates: "Tran Phong"
   intro: "We designed a core CPU (LC3b) architecture of Illinois University with Verilog language, verified by VCS tool in Linux
   environment, and evaluated on FPGA (DEII Kit of Altera company).
-  We proposed a pipeline architecture that functioned properly sixteen machine instructions and achieved 125 Mhz"
+  We proposed a pipeline architecture that functioned properly sixteen machine instructions and achieved 125 Mhz."

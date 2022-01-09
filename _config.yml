@@ -4,3 +4,6 @@ collections:
 
   workexp:
     output: True
+
+  projects:
+    output: True
