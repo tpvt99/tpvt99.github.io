@@ -5,7 +5,7 @@
       var height, width;
       width = 800;
       height = 600;
-      return $(this).append(`<iframe width=\"${width}\" height=\"${height}\" src=\"http://www.youtube.com/embed/${this.id}\" frameborder=\"0\" allowfullscreen></iframe>`);
+      return $(this).append(`<iframe width=\"${width}\" height=\"${height}\" src=\"https://www.youtube.com/embed/${this.id}\" frameborder=\"0\" allowfullscreen></iframe>`);
     });
   });
 
