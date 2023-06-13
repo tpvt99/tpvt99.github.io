@@ -4,9 +4,12 @@
         <div style="overflow:hidden">
             <div style="max-width: 50%; float:left;">
                 {% if project.webpage %}
-                <a href="{{project.webpage}}" class="pub-name" target="_blank">{{ project.name}} </a>
+                <span><a href="{{project.webpage}}" class="pub-name" style="display:inline" target="_blank">{{ project.name}} </a></span>
                 {% else %}
-                    <p class="pub-name" style="color:black;">{{ project.name}} </p>
+                    <span class="pub-name" style="color:black;">{{ project.name}} </span>
+                {% endif %}
+                {% if project.code %}
+                    <span>| <a href="{{project.code}}" class="pub-name" style="display:inline" target="_blank">Code</a></span>
                 {% endif %}
             </div>
             <div style="max-width: 50%; float:right;">

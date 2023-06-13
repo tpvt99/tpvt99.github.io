@@ -84,7 +84,7 @@ body,
   tr,
   p,
   a {
-    font-family: 'Roboto', 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.2;
 }
@@ -144,7 +144,7 @@ strong {
   }
 
   .name {
-    font-family: 'Roboto', 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 32px;
   }
 

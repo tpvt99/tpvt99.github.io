@@ -1,3 +1,12 @@
+- name: "Film Genre Prediction"
+  id: "filmgenre"
+  timeline: "NUS, Singapore, Nov. 2022"
+  teammates: "Sashankh Chengavalli Kumar, Tran Phong, Wong Wei Hao"
+  intro: "In this project, we aim to study deep learning approaches to a text classification task, 
+  by attempting to predict the genre of a film based on its plot in a single-label multi-class classification problem. "
+  webpage: "/projects/filmgenre.html"
+  code: "https://github.com/tpvt99/film-genre-pred"
+
 - name: "Cache-adaptive Matrix Multiplication"
   id: "cacheadaptive"
   timeline: "NUS, Singapore, Nov. 2021"
@@ -5,6 +14,7 @@
   intro: "We designed cache-efficient (cache-oblivious and cache-adaptive) algorithms for matrix multiplication
   and experimented on a simulated cache and a real computer."
   webpage: "/projects/cacheadaptive.html"
+  code: "https://github.com/tpvt99/cs5234_cache"
 
 - name: "Controlling car in Duckietown using Deep Q-Learning"
   id: "duckietown"
@@ -13,6 +23,7 @@
   intro: "We developed Deep Q-Learning to automate the Duckiebot to follow the lane and reduce speed near the traffic light.
   We also employed Autoencoder network to extract good features."
   webpage: "/projects/duckietown.html"
+  code: "https://github.com/tpvt99/autonomous-duckie"
 
 - name: "Vietnamese Character Recognition"
   id: "vichar"
