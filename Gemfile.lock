@@ -3,12 +3,17 @@ GEM
   specs:
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
+    execjs (2.8.1)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
     google-protobuf (3.23.2)
@@ -31,6 +36,9 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-coffeescript (2.0.0)
+      coffee-script (~> 2.2)
+      coffee-script-source (~> 1.12)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-watch (2.2.1)
@@ -67,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-coffeescript
 
 BUNDLED WITH
    2.1.2
