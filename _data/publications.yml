@@ -1,3 +1,21 @@
+- name: "What Truly Matters in Trajectory Prediction for Autonomous Driving?"
+  author: 
+    - name: "Haoran Wu*"
+    - name: "Tran Phong*"
+      me: "true"
+    - name: "Cunjun Yu*"
+      website: "https://majiker.github.io/"
+    - name: "Panpan Cai"
+      website: "https://cindycia.github.io/"
+    - name: "Sifa Zheng"
+    - name: "David Hsu"
+      website: "https://www.comp.nus.edu.sg/~dyhsu/"
+  venue: "Advances in Neural Information Processing Systems 36 (NeurIPS 2023)"
+  citekey: "haoran23"
+  webpage: "https://whatmatters23.github.io/"
+  thumbnail: "/assets/images/publications/haoran23/thumbnail.png"
+  paper: "https://arxiv.org/abs/2306.15136"
+
 - name: "GRAND-VISION: An Intelligent System for Optimized Deployment Scheduling of Law Enforcement Agents"
   author: 
     - name: "Jonathan Chase"
