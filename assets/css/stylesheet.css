@@ -197,7 +197,7 @@ strong {
   display: table-cell;
   vertical-align: middle;
   width: 75%;
-
+  font-size: 14px;
 }
 
 .research-proj .pub-name {

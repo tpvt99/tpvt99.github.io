@@ -1,8 +1,8 @@
 - name: "What Truly Matters in Trajectory Prediction for Autonomous Driving?"
   author: 
-    - name: "Haoran Wu*"
-    - name: "Tran Phong*"
+    - name: "Phong Tran*"
       me: "true"
+    - name: "Haoran Wu*"
     - name: "Cunjun Yu*"
       website: "https://majiker.github.io/"
     - name: "Panpan Cai"
